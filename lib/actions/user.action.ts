@@ -194,7 +194,7 @@ export async function updateUser(params: UpdateUserParams) {
         new: true,
       });
     } else {
-      userAddress = await Address.create({address, isDefault: true});
+      userAddress = await Address.create({...address, isDefault: true});
     }
     user.address = userAddress._id;
     await user.save();
